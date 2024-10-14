@@ -3,6 +3,12 @@ using System.Reflection.Metadata;
 using System.Runtime.Intrinsics.X86;
 using System.Security.Cryptography.X509Certificates;
 
+//Ska man ha lag, eller enstaka spelare???????
+//Om lag- skapa en lista för lag, där alla deltagare i ett lag läggs till.
+//Skapa frågor och logik för hur frågorna ska visas. 
+//Skapa en räknare för lagens poängställning
+//Dela upp klasserna i olika filer
+
 class Program
 {
 
@@ -10,18 +16,17 @@ class Program
     {
         HandlePlayer handlePlayer = new HandlePlayer();
 
-
         bool isRunning = true;    
 
-        System.Console.WriteLine("*******************************************");
-        System.Console.WriteLine("Välkommen till Quiz-night restaurang Valen!");
-        System.Console.WriteLine("*******************************************");
+        System.Console.WriteLine("**********************************************");
+        System.Console.WriteLine("Välkommen till Quiz-night på restaurang Valen!");
+        System.Console.WriteLine("**********************************************");
 
         while (isRunning)
         {       
 
             System.Console.WriteLine("Gör ett av följande val:");
-            System.Console.WriteLine("1. Skapa ett lag och lägg till dina medspelare.");
+            System.Console.WriteLine("1. Lägg till kvällens deltagare.");
             System.Console.WriteLine("2. Starta quiz.");
             System.Console.WriteLine("3. Se ställning för alla deltagande lag.");
             System.Console.WriteLine("4. Avsluta");
@@ -37,7 +42,7 @@ class Program
             {
                 case 1:
                 {
-                    System.Console.WriteLine("Alt 1");
+                    handlePlayer.AddPlayer();
                     break;
                 }
                 case 2:

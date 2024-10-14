@@ -10,14 +10,61 @@ class Program
     {
         HandlePlayer handlePlayer = new HandlePlayer();
 
-        System.Console.WriteLine("Välkommen till Quiz-night!");
 
-        handlePlayer.AddPlayer();         
-       
+        bool isRunning = true;    
+
+        System.Console.WriteLine("*******************************************");
+        System.Console.WriteLine("Välkommen till Quiz-night restaurang Valen!");
+        System.Console.WriteLine("*******************************************");
+
+        while (isRunning)
+        {       
+
+            System.Console.WriteLine("Gör ett av följande val:");
+            System.Console.WriteLine("1. Skapa ett lag och lägg till dina medspelare.");
+            System.Console.WriteLine("2. Starta quiz.");
+            System.Console.WriteLine("3. Se ställning för alla deltagande lag.");
+            System.Console.WriteLine("4. Avsluta");
+            string input = Console.ReadLine();
+
+            if (!int.TryParse(input, out int choice))
+            {
+                System.Console.WriteLine("Felaktig inmatning. Ange giltigt val");
+                break;
+            }
+
+            switch(choice)
+            {
+                case 1:
+                {
+                    System.Console.WriteLine("Alt 1");
+                    break;
+                }
+                case 2:
+                {
+                    System.Console.WriteLine("Alt 2");
+                    break;
+                }
+                case 3:
+                {
+                    System.Console.WriteLine("Alt 3");
+                    break;
+                }
+                case 4:
+                {
+                    System.Console.WriteLine("Alt 4");
+                    isRunning = false;
+                    break;
+                }                
+
+            }           
+
+        }
+
+        
+        
     }
-
 }
-
 
 public class Player
 {
@@ -70,12 +117,39 @@ public class HandlePlayer
         {
             System.Console.WriteLine(player.Name);
         }
-      
+    }
+
+}
+
+class Question
+{
+    public string QuestionText {get; set;}
+    public string Answer {get; set;}
+
+    public Question(string questionText, string answer )
+    {
+        QuestionText = questionText;
+        Answer = answer;
+    }
+
+}
+
+class Quiz
+{
+   List<Question> questions = new List<Question>();
+
+    public void AddQuestion(string questionText, string answer)
+    {
+        Question newQuestion = new Question(questionText, answer);
+        questions.Add(newQuestion);
         
     }
 
-    
-
-    
-
+    public void ShowAllQuestions()
+    {
+        foreach(Question question in questions)
+        {
+            System.Console.WriteLine(question);
+        }
+    }
 }

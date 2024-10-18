@@ -15,6 +15,7 @@ class Program
     public static void Main()
     {
         HandleTeam handleTeam = new HandleTeam();
+        
 
         bool isRunning = true;    
 
@@ -42,22 +43,24 @@ class Program
             {
                 case 1:
                 {
+                    System.Console.WriteLine("**** 1. Lägg till lag och deltagare****");
                     handleTeam.AddPlayerToteam();
                     break;
                 }
                 case 2:
                 {
-                    System.Console.WriteLine("3. Starta quiz");
+                    System.Console.WriteLine(" ****2. Starta quiz****");
                     break;
                 }
                 case 3:
                 {
-                    System.Console.WriteLine("Alt 4 - se ställning för varje ");
+                    System.Console.WriteLine("****3. Se ställning för varje lag**** ");
+                    handleTeam.ShowTeamInfo();
                     break;
                 } 
                 case 4:
                 {
-                    System.Console.WriteLine("Avsluta spelet");
+                    System.Console.WriteLine("**** 4. Avsluta spelet****");
                      isRunning = false;
                      break;
                 }               

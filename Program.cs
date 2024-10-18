@@ -14,7 +14,7 @@ class Program
 
     public static void Main()
     {
-        HandlePlayer handlePlayer = new HandlePlayer();
+        HandleTeam handleTeam = new HandleTeam();
 
         bool isRunning = true;    
 
@@ -26,11 +26,10 @@ class Program
         {       
 
             System.Console.WriteLine("Gör ett av följande val:");
-            System.Console.Write("1. Lägg till spelare i ditt lag: ");
-            System.Console.Write("2. Lägg till ditt lag: ");
-            System.Console.WriteLine("3. Starta quiz.");
-            System.Console.WriteLine("4. Se ställning för alla deltagande lag.");
-            System.Console.WriteLine("5. Avsluta");
+            System.Console.WriteLine("1. Skapa lag och lägg till spelare: ");
+            System.Console.WriteLine("2. Starta quiz.");
+            System.Console.WriteLine("3. Se ställning för alla deltagande lag.");
+            System.Console.WriteLine("4. Avsluta");
             string input = Console.ReadLine();
 
             if (!int.TryParse(input, out int choice))
@@ -43,25 +42,20 @@ class Program
             {
                 case 1:
                 {
-                    handlePlayer.AddPlayer();
+                    handleTeam.AddPlayerToteam();
                     break;
                 }
                 case 2:
                 {
-                    System.Console.WriteLine("2. LÄgg till ditt lag");
+                    System.Console.WriteLine("3. Starta quiz");
                     break;
                 }
                 case 3:
                 {
-                    System.Console.WriteLine("3. Starta quiz");
-                    break;
-                }
-                case 4:
-                {
                     System.Console.WriteLine("Alt 4 - se ställning för varje ");
                     break;
                 } 
-                case 5:
+                case 4:
                 {
                     System.Console.WriteLine("Avsluta spelet");
                      isRunning = false;
@@ -71,8 +65,6 @@ class Program
             }           
 
         }
-
-        
         
     }
 }
